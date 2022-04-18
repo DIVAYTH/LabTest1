@@ -18,9 +18,4 @@ public class Action {
         return "Увеличение показало " + obj.getCount() + " "
                 + obj.getDescription() + " " + obj.getName() + ".";
     }
-
-    public void mainAction(Person perOne, Person perTwo, ObjectAction objOne, ObjectAction objTwo) {
-        System.out.println(makeActionOne(perOne, perTwo) + makeActionTwo(objOne) + makeActionThree(objTwo)
-                + "Это потрясло их своей неожиданностью.");
-    }
 }
