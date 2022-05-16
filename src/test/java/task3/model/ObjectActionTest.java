@@ -16,27 +16,27 @@ class ObjectActionTest {
     @ValueSource(strings = {"тумбочки", "гвозди"})
     void objectActionNameInvalidTest(String input) {
         assertThrows(NameException.class,
-                () -> new ObjectAction(input, 2, "массивные")
+                () -> ObjectAction.getInstance(input, 2, "массивные")
         );
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"ракеты", "стрелы"})
     void objectActionNameValidTest(String input) {
-        assertDoesNotThrow(() -> new ObjectAction(input, 2, "массивные"));
+        assertDoesNotThrow(() ->  ObjectAction.getInstance(input, 2, "массивные"));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7, 8})
     void objectActionCountInvalidTest(int input) {
         assertThrows(CountException.class,
-                () -> new ObjectAction("ракеты", input, "массивные")
+                () ->  ObjectAction.getInstance("ракеты", input, "массивные")
         );
     }
 
     @Test
     void objectActionCountValidTest() {
-        assertDoesNotThrow(() -> new ObjectAction("ракеты", 2, "массивные"));
+        assertDoesNotThrow(() ->  ObjectAction.getInstance("ракеты", 2, "массивные"));
     }
 
     @ParameterizedTest
@@ -44,13 +44,13 @@ class ObjectActionTest {
     @ValueSource(strings = {"легкие", "вялые"})
     void objectActionDescriptionInvalidTest(String input) {
         assertThrows(NameException.class,
-                () -> new ObjectAction("ракеты", 2, input)
+                () ->  ObjectAction.getInstance("ракеты", 2, input)
         );
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"массивные", "серебристые"})
     void objectActionDescriptionValidTest(String input) {
-        assertDoesNotThrow(() -> new ObjectAction("ракеты", 2, input));
+        assertDoesNotThrow(() ->  ObjectAction.getInstance("ракеты", 2, input));
     }
 }

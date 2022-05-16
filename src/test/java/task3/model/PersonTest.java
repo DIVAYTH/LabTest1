@@ -14,13 +14,13 @@ class PersonTest {
     @ValueSource(strings = {"Вадим", "Илья"})
     void personNameInvalidTest(String input) {
         assertThrows(NameException.class,
-                () -> new Person(input)
+                () -> Person.getInstance(input)
         );
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"Форд", "Зафод"})
     void personNameValidTest(String input) {
-        assertDoesNotThrow(() -> new Person(input));
+        assertDoesNotThrow(() -> Person.getInstance(input));
     }
 }

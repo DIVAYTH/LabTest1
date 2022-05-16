@@ -3,11 +3,15 @@ package task3.model;
 import task3.exception.NameException;
 
 public class Person {
-    private String name;
+    private final String name;
 
-    public Person(String name) throws NameException {
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public static Person getInstance(String name) throws NameException {
         if (name != null && (name.equals("Форд") || name.equals("Зафод"))) {
-            this.name = name;
+            return new Person(name);
         } else {
             throw new NameException("Неправильное имя");
         }
